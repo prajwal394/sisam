@@ -32,8 +32,9 @@ footer{height:70px}
 <div class="card">
 <h3>✨ Join the community</h3>
 <p>Create your profile and connect with people.</p>
-<input placeholder="Choose a username">
-<button onclick="alert('Account registration will be connected to Firebase next!')">Get Started</button>
+<input id="username" placeholder="Choose a username" maxlength="30">
+<button onclick="welcome()">Get Started</button>
+<p id="message" aria-live="polite"></p>
 </div>
 <div class="card">
 <h3>📸 Your social feed</h3>
@@ -46,5 +47,11 @@ footer{height:70px}
 <footer></footer>
 </main>
 <nav><span>⌂ Home</span><span>⌕ Explore</span><span>＋ Create</span><span>♡ Activity</span><span>◉ Profile</span></nav>
+<script>
+function welcome(){
+ const name=document.getElementById('username').value.trim();
+ document.getElementById('message').textContent=name ? 'Welcome, '+name+'! This is a preview; account creation is not connected yet.' : 'Please enter a username first.';
+}
+</script>
 </body>
 </html>
